@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{'/admin/product/' + ${productEdit.id} +'/edit'}" class="form-horizontal" method="post"
+      th:object="${productEdit}">
+    <hr>
+    <h3>Edit Product</h3>
+    <hr>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name"
+                   th:value="${productEdit.name}" th:field="*{name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Quantity:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="quantity"
+                   th:value="${productEdit.quantity}" th:field="*{quantity}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Price:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="price"
+                   th:value="${productEdit.price}" th:field="*{price}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Description:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="description"
+                   th:value="${productEdit.description}" th:field="*{description}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Category</label>
+        <div class="checkbox col-sm-10">
+            <select name="category" th:field="*{categoryDTO.id}">
+                <block th:each="cate : ${categories}">
+                    <option th:value="${cate.id}" ><span th:text="${cate.name}"></span></option>
+                </block>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">ProductFileName:</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" name="productFileName"
+                   th:value="${productEdit.productFileName}" th:field="*{productFileName}">
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Edit</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

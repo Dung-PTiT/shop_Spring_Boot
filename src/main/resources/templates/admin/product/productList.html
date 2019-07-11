@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/template">
+<head>
+  <title>Product List</title>
+  <style>
+    #product-thumbnail {
+      max-width: 200px;
+      max-height: 200px;
+      min-width: 200px;
+      min-height: 200px;
+    }
+
+    #input-search-name {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div layout:fragment="body_section">
+  <div class="row">
+    <div class="col-md-2"><a th:href="@{/admin/product/add}"><h5>Add Product</h5></a></div>
+    <div class="col-md-7"></div>
+    <div class="col-md-3">
+      <form th:action="@{/admin/product/searchByName}" th:method="get">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" name="name"
+                 placeholder="Search by name..." id="input-search-name">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product Image</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Select</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="product : ${products}">
+      <tr>
+        <td><span th:text="${product.id}"></span></td>
+        <td><img th:src="@{'/image/product?fileName='+${product.productFileName}}" id="product-thumbnail"
+                 class="rounded img-thumbnail"></td>
+        <td><span th:text="${product.name}"></span></td>
+        <td><span th:text="${product.quantity}"></span></td>
+        <td><span th:text="${product.price}"></span></td>
+        <td><span th:text="${product.description}"></span></td>
+        <td><span th:text="${product.categoryDTO.name}"></span></td>
+        <td><a th:href="@{'/admin/product/' + ${product.id} + '/edit'}">Edit</a>
+          | <a th:href="@{'/admin/product/' + ${product.id} + '/delete'}">Delete</a>
+          | <a th:href="@{'/admin/cart/add/' + ${product.id}}">Add to cart</a>
+        </td>
+      </tr>
+    </th:block>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>ID</th>
+      <th>Product Image</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Select</th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<head>
+  <title>User List</title>
+  <style>
+    #user-thumbnail {
+      max-width: 200px;
+      max-height: 200px;
+      min-width: 200px;
+      min-height: 200px;
+    }
+
+    #input-search-name {
+      font-size: 14px;
+    }
+
+    #input-search-username {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div layout:fragment="body_section">
+  <div class="row">
+    <div class="col-md-3"><a th:href="@{/admin/user/add}"><h5>Add User</h5></a></div>
+    <div class="col-md-3">
+      <form th:action="@{/admin/user/searchByName}" th:method="get">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" name="name"
+                 placeholder="Search by name..." id="input-search-name">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <form th:action="@{/admin/user/searchByUsername}" th:method="get">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" name="username"
+                 placeholder="Search by Username..." id="input-search-username">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Avatar</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Phone Number</th>
+      <th>Select</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="user : ${users}">
+      <tr>
+        <td><span th:text="${user.id}"></span></td>
+        <td><img th:src="@{'/image/user?fileName='+${user.avatarFileName}}" id="user-thumbnail"
+                 class="rounded img-thumbnail"></td>
+        <td><span th:text="${user.name}"></span></td>
+        <td><span th:text="${user.age}"></span></td>
+        <td><span th:text="${user.address}"></span></td>
+        <td><span th:text="${user.username}"></span></td>
+        <td><span th:text="${user.role}"></span></td>
+        <td><span th:text="${user.phoneNumber}"></span></td>
+        <td><a th:href="@{'/admin/user/' + ${user.id} + '/edit'}">Edit</a>
+          | <a th:href="@{'/admin/user/' + ${user.id} + '/delete'}">Delete</a>
+        </td>
+
+      </tr>
+    </th:block>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>ID</th>
+      <th>Avatar</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th>Phone Number</th>
+      <th>Select</th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>

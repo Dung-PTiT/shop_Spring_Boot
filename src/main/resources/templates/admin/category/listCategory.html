@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/template">
+<head>
+  <title>List Category</title>
+  <style>
+    #input-search-name {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div layout:fragment="body_section">
+  <div class="row">
+    <div class="col-md-3"><a th:href="@{/admin/category/add}"><h5>Add Category</h5></a></div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+      <form th:action="@{/admin/category/searchByName}" th:method="get">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" name="name"
+                 placeholder="Search name ..." id="input-search-name">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Select</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="category : ${categories}">
+      <tr>
+        <td><span th:text="${category.id}"></span></td>
+        <td><span th:text="${category.name}"></span></td>
+        <td><a th:href="@{'/admin/category/' + ${category.id} + '/edit'}">Edit</a>
+          | <a th:href="@{'/admin/category/' + ${category.id} + '/delete'}">Delete</a>
+        </td>
+      </tr>
+    </th:block>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Select</th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>

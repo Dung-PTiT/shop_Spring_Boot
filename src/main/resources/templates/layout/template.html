@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div layout:fragment="menu_section">
+            <hr>
+            <div class="row">
+              <div class="col-md-1">
+                <a th:href="@{/admin/user/list}">
+                  <h5>User</h5>
+                </a>
+              </div>
+              <div class="col-md-1">
+                <a th:href="@{/admin/product/list}">
+                  <h5>Product</h5>
+                </a>
+              </div>
+              <div class="col-md-1">
+                <a th:href="@{/admin/category/list}">
+                  <h5>Category</h5>
+                </a>
+              </div>
+              <div class="col-md-1">
+                <a th:href="@{/admin/cart}">
+                  <h5>Cart</h5>
+                </a>
+              </div>
+              <div class="col-md-1">
+                <a th:href="@{/admin/orderList}">
+                  <h5>Orders</h5>
+                </a>
+              </div>
+              <div class="col-md-1">
+                <a th:href="@{/logout}">
+                  <h5>Log out</h5>
+                </a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div layout:fragment="body_section">
+          </div>
+          <div layout:fragment="footer_section">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

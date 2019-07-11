@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/headerAccount}">
+<head>
+  <title>Client</title>
+</head>
+<body>
+
+<div layout:fragment="body_section">
+  <div class="container">
+    <div class="content-push">
+      <div class="navigation-banner-swiper">
+        <div class="swiper-container" data-autoplay="3000" data-loop="1" data-speed="400" data-center="0"
+             data-slides-per-view="1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide active" data-val="0">
+              <div class="navigation-banner-wrapper light-text align-3"
+                   style="background-image: url('/client/img/mini-1.jpg'); background-position: center center;">
+                <div class="navigation-banner-content">
+                  <div class="cell-view">
+                    <h2 class="subtitle">new special collection</h2>
+                    <h1 class="title">Minimal Collection</h1>
+                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt.
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="swiper-slide" data-val="1">
+              <div class="navigation-banner-wrapper light-text align-3"
+                   style="background-image: url('/client/img/mini-2.jpg'); background-position: center center;">
+                <div class="navigation-banner-content">
+                  <div class="cell-view">
+                    <h2 class="subtitle">new special collection</h2>
+                    <h1 class="title">Minimal Collection</h1>
+                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt.
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="pagination"></div>
+        </div>
+      </div>
+
+      <div class="mozaic-banners-wrapper type-2">
+        <div class="row">
+          <div class="banner-column col-sm-6">
+            <a style="background-image: url('/client/img/mini-3.jpg'); background-size: cover; background-position: right top;"
+               class="mozaic-banner-entry type-3">
+                                <span class="mozaic-banner-content">
+                                    <span class="subtitle">New Collection</span>
+                                    <span class="title">For Him</span>
+                                    <span class="view">read more</span>
+                                </span>
+            </a>
+          </div>
+          <div class="banner-column col-sm-6">
+            <a style="background-image: url('/client/img/mini-4.jpg'); background-size: cover; background-position: right top;"
+               class="mozaic-banner-entry type-3">
+                                <span class="mozaic-banner-content">
+                                    <span class="subtitle">New Collection</span>
+                                    <span class="title">For Her</span>
+                                    <span class="view">read more</span>
+                                </span>
+            </a>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script th:src="@{/client/js/jquery-2.1.3.min.js}"></script>
+<script th:src="@{/client/js/idangerous.swiper.min.js}"></script>
+<script th:src="@{/client/js/global.js}"></script>
+<script th:src="@{/client/js/jquery.mousewheel.js}"></script>
+<script th:src="@{/client/js/jquery.jscrollpane.min.js}"></script>
+</body>
+</html>

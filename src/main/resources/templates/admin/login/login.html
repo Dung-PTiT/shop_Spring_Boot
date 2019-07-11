@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/client/header}">
+<head>
+  <title>Login</title>
+</head>
+<body>
+<div layout:fragment="body_section">
+  <div class="content-push">
+    <div class="breadcrumb-box">
+      <a href="#">Home</a>
+      <a href="#">Login Form</a>
+    </div>
+    <div class="information-blocks">
+      <div class="row">
+        <div class="col-sm-6 information-entry">
+          <div class="login-box">
+            <div class="article-container style-1">
+              <h4>Đăng nhập</h4>
+              <p> Đăng nhập để theo dõi đơn hàng, lưu
+                danh sách sản phẩm yêu thích, nhận
+                nhiều ưu đãi hấp dẫn.</p>
+            </div>
+            <form th:action="@{/login}" method="post">
+              <hr>
+              <label>Username</label>
+              <input class="simple-field form-control" name="username" type="text" placeholder="Username"
+                     required="required"/>
+              <label>Password</label>
+              <input class="simple-field form-control" name="password" type="password" placeholder="Password"
+                     required="required"/>
+              <div class="row">
+                  <div class="col-sm-8"></div>
+                <div class="col-sm-4">  <div class="button style-14" style=" border-radius: 40px; height: 40px; ">Login Page<input type="submit" value=""/>
+                </div></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-6 information-entry">
+          <div class="login-box">
+            <div class="article-container style-1">
+              <h4>Tạo tài khoản</h4>
+              <p>Tạo tài khoản để theo dõi đơn hàng, lưu
+                danh sách sản phẩm yêu thích, nhận
+                nhiều ưu đãi hấp dẫn.</p>
+            </div>
+            <hr>
+            <form th:action="@{/login}" method="post">
+              <div class="row">
+                <div class="col-sm-2"><label style="padding-top: 16px;">Name</label></div>
+                <div class="col-sm-10"><input class="simple-field form-control" name="name" type="text"
+                                              placeholder="Name"
+                                              required="required"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2"><label style="padding-top: 16px;">Email</label></div>
+                <div class="col-sm-10"><input class="simple-field form-control" name="email" type="text"
+                                              placeholder="Email"
+                                              required="required"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2"><label style="padding-top: 16px;">Phonenumber</label></div>
+                <div class="col-sm-10"><input class="simple-field form-control" name="phonenumber" type="text"
+                                              placeholder="Phone Number"
+                                              required="required"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2"><label style="padding-top: 16px;">Username</label></div>
+                <div class="col-sm-10"><input class="simple-field form-control" name="username" type="text"
+                                              placeholder="Username"
+                                              required="required"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2"><label style="padding-top: 16px;">Password</label></div>
+                <div class="col-sm-10"><input class="simple-field form-control" name="password" type="password"
+                                              placeholder="Password"
+                                              required="required"/></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                  <div class="button style-12" style=" border-radius: 40px; height: 40px;">Create<input type="submit" value=""/>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/template">
+<head>
+  <title>Cart</title>
+  <script>
+      function setBuyQuantity(id, newQuantity, sellPrice) {
+          var paramQuery = "id=" + id + "&newQuantity=" + newQuantity;
+          var req = new XMLHttpRequest();
+          req.open("GET", "/api/admin/setBuyQuantity?" + paramQuery, true);
+          req.send();
+          console.log(sellPrice);
+          document.getElementById("total-price-" + id).innerText = (sellPrice * newQuantity).toString() + " $";
+      }
+  </script>
+</head>
+<body>
+<div layout:fragment="body_section">
+  <form th:action="@{/admin/cart/order/add}" th:method="POST">
+    <div class="form-group">
+      <div class="row">
+        <label class="control-label col-sm-1">Customer:</label>
+        <div class="checkbox col-sm-10" style="margin-top: 0px;">
+          <select name="buyerId">
+            <block th:each="user  : ${listUser}">
+              <option th:value="${user.id}"><span th:text="${user.name}"></span></option>
+            </block>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Product</th>
+        <th>Buy Quantity</th>
+        <th>Sell price</th>
+        <th>Total</th>
+        <th>Select</th>
+      </tr>
+      </thead>
+      <tbody id="cart-table-body">
+      <tr th:each="item : ${session.cart}">
+        <td th:text="${item.value.productDTO.name}"></td>
+        <td><input th:value="${item.value.buyQuantity}" type="number" min="1"
+                   th:onchange="'setBuyQuantity(' + ${item.key} + ', this.value,' + ${item.value.sellPrice} + ')'">
+        </td>
+        <td th:text="${item.value.sellPrice} + ' $'"></td>
+        <td th:text="${item.value.sellPrice*item.value.buyQuantity} +' $'" th:id="'total-price-' + ${item.key}"></td>
+        <td><a th:href="@{'/admin/cart/delete/' + ${item.key}}">Delete</a>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>Product</th>
+        <th>Buy Quantity</th>
+        <th>Sell price</th>
+        <th>Total</th>
+        <th>Select</th>
+      </tr>
+      </tfoot>
+    </table>
+    <hr>
+    <div class="row">
+      <button class="btn btn-success" style="margin-left: 1020px;">Order</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

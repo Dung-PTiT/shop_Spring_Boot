@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Fashion</title>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+  <link th:href="@{/client/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{/client/css/idangerous.swiper.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{/client/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+  <link
+      href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700%7CDancing+Script%7CMontserrat:400,700%7CMerriweather:400,300italic%7CLato:400,700,900'
+      rel='stylesheet' type='text/css'/>
+  <link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css' />
+  <link th:href="@{/client/css/style.css}" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" th:href="@{/client/img/favicon-9.ico}"/>
+  <script th:src="@{/client/js/jquery-2.1.3.min.js}"></script>
+  <script th:src="@{/client/js/idangerous.swiper.min.js}"></script>
+  <script th:src="@{/client/js/global.js}"></script>
+  <script th:src="@{/client/js/jquery.mousewheel.js}"></script>
+  <script th:src="@{/client/js/jquery.jscrollpane.min.js}"></script>
+</head>
+<body>
+<div class="row">
+  <div class="col-md-12">
+    <div layout:fragment="menu_section">
+      <div class="header-wrapper style-15">
+        <header class="type-4">
+          <div class="header-top">
+            <div class="header-top-entry">
+              <div class="title"><img th:src="@{/client/img/flag-lang-1.png}" alt="" />English<i class="fa fa-caret-down"></i></div>
+              <div class="list">
+                <a href="#" class="list-entry"><img th:src="@{/client/img/flag-lang-2.png}" alt="" />French</a>
+                <a href="#" class="list-entry"><img th:src="@{/client/img/flag-lang-3.png}" alt="" />Spanish</a>
+              </div>
+            </div>
+            <div class="header-top-entry">
+              <div class="title"><b>Currency:</b> $ USD<i class="fa fa-caret-down"></i></div>
+              <div class="list">
+                <a href="#" class="list-entry">$ CAD</a>
+                <a href="#" class="list-entry">&#8364; EUR</a>
+              </div>
+            </div>
+            <div class="header-top-entry hidden-xs">
+              <div class="title"><i class="fa fa-phone"></i>Any question? Call Us <a href="tel:+987123654"><b>+987 123 654</b></a></div>
+            </div>
+
+            <div class="menu-button responsive-menu-toggle-class"><i class="fa fa-reorder"></i></div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="header-middle">
+            <div class="logo-wrapper">
+              <a id="logo" href="#"><img th:src="@{/client/img/logo-15.png}" alt="" /></a>
+            </div>
+
+            <div class="right-entries">
+              <a class="header-functionality-entry open-search-popup" href="#" style="padding: 0 0;"><i class="fa fa-search"></i><span>Search</span></a>
+              <a class="header-functionality-entry" th:href="@{/login}"><i class="fa fa-user"></i><span>My Account</span></a>
+              <a class="header-functionality-entry" th:href="@{/logout}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+              <a class="header-functionality-entry open-cart-popup" href="#"><i class="fa fa-shopping-cart"></i><span>My Cart</span> <b>$255,99</b></a>
+            </div>
+
+          </div>
+
+          <div class="close-header-layer"></div>
+          <div class="navigation">
+            <div class="navigation-header responsive-menu-toggle-class">
+              <div class="title">Navigation</div>
+              <div class="close-menu"></div>
+            </div>
+            <div class="nav-overflow">
+              <nav>
+                <ul>
+                  <li class="full-width">
+                    <a href="#" class="active">Home</a><i class="fa fa-chevron-down"></i>
+                    <div class="submenu">
+                      <div class="full-width-menu-items-right">
+                        <div class="menu-slider-arrows">
+                          <a class="left"><i class="fa fa-chevron-left"></i></a>
+                          <a class="right"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                        <div class="submenu-list-title"><a href="#">Reccomended Products</a><span class="toggle-list-button"></span></div>
+                        <div class="menu-slider-out">
+                          <div class="menu-slider-in">
+                            <div class="menu-slider-entry">
+                              <div class="product-slide-entry">
+                                <div class="product-image">
+                                  <img th:src="@{/client/img/product-minimal-1.jpg}" alt="" />
+                                  <div class="bottom-line left-attached">
+                                    <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                    <a class="bottom-line-a square open-product"><i class="fa fa-expand"></i></a>
+                                  </div>
+                                </div>
+                                <a href="#" class="title">1.Pullover Batwing Sleeve Zigzag</a>
+                                <div class="price">
+                                  <div class="prev">$199,99</div>
+                                  <div class="current">$119,99</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="menu-slider-entry">
+                              <div class="product-slide-entry">
+                                <div class="product-image">
+                                  <img th:src="@{/client/img/product-minimal-2.jpg}" alt="" />
+                                  <div class="bottom-line left-attached">
+                                    <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                    <a class="bottom-line-a square open-product"><i class="fa fa-expand"></i></a>
+                                  </div>
+                                </div>
+                                <a href="#" class="title">2.Pullover Batwing Sleeve Zigzag</a>
+                                <div class="price">
+                                  <div class="prev">$199,99</div>
+                                  <div class="current">$119,99</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="menu-slider-entry">
+                              <div class="product-slide-entry">
+                                <div class="product-image">
+                                  <img th:src="@{/client/img/product-minimal-3.jpg}" alt="" />
+                                  <div class="bottom-line left-attached">
+                                    <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                    <a class="bottom-line-a square open-product"><i class="fa fa-expand"></i></a>
+                                  </div>
+                                </div>
+                                <a href="#" class="title">3.Pullover Batwing Sleeve Zigzag</a>
+                                <div class="price">
+                                  <div class="prev">$199,99</div>
+                                  <div class="current">$119,99</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="menu-slider-entry">
+                              <div class="product-slide-entry">
+                                <div class="product-image">
+                                  <img th:src="@{/client/img/product-minimal-4.jpg}" alt="" />
+                                  <div class="bottom-line left-attached">
+                                    <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                    <a class="bottom-line-a square open-product"><i class="fa fa-expand"></i></a>
+                                  </div>
+                                </div>
+                                <a href="#" class="title">4.Pullover Batwing Sleeve Zigzag</a>
+                                <div class="price">
+                                  <div class="prev">$199,99</div>
+                                  <div class="current">$119,99</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="menu-slider-entry">
+                              <div class="product-slide-entry">
+                                <div class="product-image">
+                                  <img th:src="@{/client/img/product-minimal-5.jpg}" alt="" />
+                                  <div class="bottom-line left-attached">
+                                    <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                    <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                    <a class="bottom-line-a square open-product"><i class="fa fa-expand"></i></a>
+                                  </div>
+                                </div>
+                                <a href="#" class="title">5.Pullover Batwing Sleeve Zigzag</a>
+                                <div class="price">
+                                  <div class="prev">$199,99</div>
+                                  <div class="current">$119,99</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="full-width-menu-items-left">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="submenu-list-title"><a href="#">Homepages <span class="menu-label blue">new</span></a><span class="toggle-list-button"></span></div>
+                            <ul class="list-type-1 toggle-list-container">
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Wide Header</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Electronic</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Everything</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Fullwidth Header</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Food</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Underwear</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Bags</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Fullwidth No Slider</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Lookbook</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Wine</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Fullwidth</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Fullwidth Left Sidebar</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="submenu-list-title"><a href="#">Homepages <span class="menu-label blue">new</span></a><span class="toggle-list-button"></span></div>
+                            <ul class="list-type-1 toggle-list-container">
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Parallax</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Grid Light</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Grid Left Sidebar</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Minimal</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Toys</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Furniture</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Jewellery</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Mini</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Presentation</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Parallax Fullwidth</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Mango - Parallax Boxed</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="submenu-links-line">
+                        <div class="submenu-links-line-container">
+                          <div class="cell-view">
+                            <div class="line-links"><b>Quicklinks:</b>  <a href="#">Blazers</a>, <a href="#">Jackets</a>, <a href="#">Shoes</a>, <a href="#">Bags</a>, <a href="#">Special offers</a>, <a href="#">Sales and discounts</a></div>
+                          </div>
+                          <div class="cell-view">
+                            <div class="red-message"><b>-20% sale only this week. Don’t miss buy something!</b></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="simple-list">
+                    <a href="#">Products</a><i class="fa fa-chevron-down"></i>
+                    <div class="submenu">
+                      <ul class="simple-menu-list-column">
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Shop</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Product</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>No Sidebar</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Tab No Sidebar</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="full-width-columns">
+                    <a href="#">Categories</a><i class="fa fa-chevron-down"></i>
+                    <div class="submenu">
+                      <div class="product-column-entry">
+                        <div class="image"><img alt="" th:src="@{/client/img/product-menu-2.jpg}"></div>
+                        <div class="submenu-list-title"><a href="#">Contact Us</a><span class="toggle-list-button"></span></div>
+                        <div class="description toggle-list-container">
+                          <ul class="list-type-1">
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Contact Us 1</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Contact Us 2</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Contact Us 3</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Contact Us 4</a></li>
+                          </ul>
+                        </div>
+                        <div class="hot-mark">hot</div>
+                      </div>
+                      <div class="product-column-entry">
+                        <div class="image"><img alt="" th:src="@{/client/img/product-menu-4.jpg}"></div>
+                        <div class="submenu-list-title"><a href="#">About Us</a><span class="toggle-list-button"></span></div>
+                        <div class="description toggle-list-container">
+                          <ul class="list-type-1">
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About Us Fullwidth 1</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About Us Fullwidth 2</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About Us Fullwidth 3</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About Us Sidebar 1</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>About Us Sidebar 2</a></li>
+                          </ul>
+                        </div>
+                        <div class="hot-mark yellow">sale</div>
+                      </div>
+                      <div class="product-column-entry">
+                        <div class="image"><img alt="" th:src="@{/client/img/product-menu-3.jpg}"></div>
+                        <div class="submenu-list-title"><a href="#">Cart</a><span class="toggle-list-button"></span></div>
+                        <div class="description toggle-list-container">
+                          <ul class="list-type-1">
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Cart</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Cart Traditional</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Checkout</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="product-column-entry">
+                        <div class="image"><img alt="" th:src="@{/client/img/product-menu-5.jpg}"></div>
+                        <div class="submenu-list-title"><a href="#">Coming Soon</a><span class="toggle-list-button"></span></div>
+                        <div class="description toggle-list-container">
+                          <ul class="list-type-1">
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Coming Soon 1</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Coming Soon 2</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Coming Soon 3</a></li>
+                          </ul>
+                        </div>
+                        <div class="hot-mark">hot</div>
+                      </div>
+                      <div class="product-column-entry">
+                        <div class="image"><img alt="" th:src="@{/client/img/product-menu-2.jpg}"></div>
+                        <div class="submenu-list-title"><a href="#">Products</a><span class="toggle-list-button"></span></div>
+                        <div class="description toggle-list-container">
+                          <ul class="list-type-1">
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Shop</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Product</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>No Sidebar</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i>Tab No Sidebar</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="submenu-links-line">
+                        <div class="submenu-links-line-container">
+                          <div class="cell-view">
+                            <div class="line-links"><b>Quicklinks:</b>  <a href="#">Blazers</a>, <a href="#">Jackets</a>, <a href="#">Shoes</a>, <a href="#">Bags</a>, <a href="#">Special offers</a>, <a href="#">Sales and discounts</a></div>
+                          </div>
+                          <div class="cell-view">
+                            <div class="red-message"><b>-20% sale only this week. Don’t miss buy something!</b></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="column-1">
+                    <a href="#">Blog</a><i class="fa fa-chevron-down"></i>
+                    <div class="submenu">
+                      <div class="full-width-menu-items-left">
+                        <img class="submenu-background" th:src="@{/client/img/product-menu-8.jpg}" alt="" />
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="submenu-list-title"><a href="#">Blog <span class="menu-label blue">new</span></a><span class="toggle-list-button"></span></div>
+                            <ul class="list-type-1 toggle-list-container">
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Blog Default</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Blog Grid</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Blog Timeline</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Blog List</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Blog Big Grid</a></li>
+                              <li><a href="#"><i class="fa fa-angle-right"></i>Single Post</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="submenu-links-line">
+                        <div class="submenu-links-line-container">
+                          <div class="cell-view">
+                            <div class="line-links"><b>Quicklinks:</b>  <a href="#">Blazers</a>, <a href="#">Jackets</a>, <a href="#">Shoes</a>, <a href="#">Bags</a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="simple-list">
+                    <a>More</a><i class="fa fa-chevron-down"></i>
+                    <div class="submenu">
+                      <ul class="simple-menu-list-column">
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Login</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Error</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Faq</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Compare</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Wishlist</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Shortcodes</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Elements - Headers</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Elements - Footers</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i>Elements - Breadcrumbs</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="fixed-header-visible">
+                    <a class="fixed-header-square-button open-cart-popup"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="fixed-header-square-button open-search-popup"><i class="fa fa-search"></i></a>
+                  </li>
+                </ul>
+                <div class="clear"></div>
+
+                <a class="fixed-header-visible additional-header-logo"><img th:src="@{/client/img/logo-15.png}" alt=""/></a>
+              </nav>
+              <div class="navigation-footer responsive-menu-toggle-class">
+                <div class="socials-box">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                  <div class="clear"></div>
+                </div>
+                <div class="navigation-copyright">Created by <a href="#">8theme</a>. All rights reserved</div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div layout:fragment="body_section">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div layout:fragment="footer_section">
+      <div class="container">
+      <div class="footer-wrapper style-12">
+        <footer class="type-1">
+          <div class="footer-bottom-navigation">
+            <div class="cell-view">
+              <div class="footer-links">
+                <a href="#">Site Map</a>
+                <a href="#">Search</a>
+                <a href="#">Terms</a>
+                <a href="#">Advanced Search</a>
+                <a href="#">Orders and Returns</a>
+                <a href="#">Contact Us</a>
+              </div>
+              <div class="copyright">Created with by <a href="#">8theme</a>. All right reserved</div>
+            </div>
+            <div class="cell-view">
+              <div class="payment-methods">
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-1.png}"></a>
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-2.png}"></a>
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-3.png}"></a>
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-4.png}"></a>
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-5.png}"></a>
+                <a href="#"><img alt="" th:src="@{/client/img/payment-method-6.png}"></a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
